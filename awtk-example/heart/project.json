@@ -1,0 +1,17 @@
+{
+  "creator": "AWTK Designer",
+  "creator.version": "0.1.3",
+  "name": "heart",
+  "appType": "APP_MOBILE",
+  "hardware": "RT1050",
+  "entry": "home_page",
+  "lcd.width": "368",
+  "lcd.height": "448",
+  "lcd.colorDepth": "16bit",
+  "lcd.colorFormat": "bgr(a)",
+  "assets.imageConst": "resource_data",
+  "assets.loadFrom": "any",
+  "assets.defaultLanguage": "zh",
+  "assets.defaultCountry": "CN",
+  "modifyTime": "2020/05/09"
+}

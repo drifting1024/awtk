@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{213118F4-1DBB-440C-BA1B-CA4562393E0B}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>scons</NMakeBuildCommandLine>
+    <NMakeOutput>bin\demo</NMakeOutput>
+    <NMakeCleanCommandLine>scons -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>scons -j8</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>scons</NMakeBuildCommandLine>
+    <NMakeOutput>bin\demo</NMakeOutput>
+    <NMakeCleanCommandLine>scons -c</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>scons -j8</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\app_main.c" />
+    <ClCompile Include="src\custom_widgets\base\fifo.c" />
+    <ClCompile Include="src\custom_widgets\chart\axis.c" />
+    <ClCompile Include="src\custom_widgets\chart\axis_p.c" />
+    <ClCompile Include="src\custom_widgets\chart\bar_series.c" />
+    <ClCompile Include="src\custom_widgets\chart\chart_animator.c" />
+    <ClCompile Include="src\custom_widgets\chart\chart_utils.c" />
+    <ClCompile Include="src\custom_widgets\chart\chart_view.c" />
+    <ClCompile Include="src\custom_widgets\chart\line_series.c" />
+    <ClCompile Include="src\custom_widgets\chart\series.c" />
+    <ClCompile Include="src\custom_widgets\chart\series_p.c" />
+    <ClCompile Include="src\custom_widgets\chart\tooltip.c" />
+    <ClCompile Include="src\custom_widgets\chart\x_axis.c" />
+    <ClCompile Include="src\custom_widgets\chart\y_axis.c" />
+    <ClCompile Include="src\custom_widgets\custom_widgets.c" />
+    <ClCompile Include="src\custom_widgets\image_shake.c" />
+    <ClCompile Include="src\custom_widgets\photo_frame\cover_view.c" />
+    <ClCompile Include="src\custom_widgets\pie_slice\pie_slice.c" />
+    <ClCompile Include="src\image_shake.c" />
+    <ClCompile Include="src\window_finding.c" />
+    <ClCompile Include="src\window_main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="design\default\styles\default.bin" />
+    <None Include="design\default\ui\finding\finding.bin" />
+    <None Include="design\default\ui\home_page\home_page.bin" />
+    <None Include="res\assets.inc" />
+    <None Include="res\assets\default\raw\styles\default.bin" />
+    <None Include="res\assets\default\raw\ui\finding\finding.bin" />
+    <None Include="res\assets\default\raw\ui\home_page\home_page.bin" />
+    <None Include="src\custom_widgets\base\wuxiaolin_draw_line.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\custom_widgets\base\fifo.h" />
+    <ClInclude Include="src\custom_widgets\chart\axis.h" />
+    <ClInclude Include="src\custom_widgets\chart\axis_p.h" />
+    <ClInclude Include="src\custom_widgets\chart\axis_types.h" />
+    <ClInclude Include="src\custom_widgets\chart\bar_series.h" />
+    <ClInclude Include="src\custom_widgets\chart\chart_animator.h" />
+    <ClInclude Include="src\custom_widgets\chart\chart_utils.h" />
+    <ClInclude Include="src\custom_widgets\chart\chart_view.h" />
+    <ClInclude Include="src\custom_widgets\chart\line_series.h" />
+    <ClInclude Include="src\custom_widgets\chart\series.h" />
+    <ClInclude Include="src\custom_widgets\chart\series_p.h" />
+    <ClInclude Include="src\custom_widgets\chart\series_types.h" />
+    <ClInclude Include="src\custom_widgets\chart\tooltip.h" />
+    <ClInclude Include="src\custom_widgets\chart\tooltip_types.h" />
+    <ClInclude Include="src\custom_widgets\chart\x_axis.h" />
+    <ClInclude Include="src\custom_widgets\chart\y_axis.h" />
+    <ClInclude Include="src\custom_widgets\custom_widgets.h" />
+    <ClInclude Include="src\custom_widgets\image_shake.h" />
+    <ClInclude Include="src\custom_widgets\photo_frame\cover_view.h" />
+    <ClInclude Include="src\custom_widgets\pie_slice\pie_slice.h" />
+    <ClInclude Include="src\image_shake.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

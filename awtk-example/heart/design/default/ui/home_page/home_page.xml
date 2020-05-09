@@ -1,0 +1,33 @@
+<window name="home_page" style:normal:bg_color="#000000">
+  <list_view name="list_view" x="0" y="0" w="100%" h="100%" default_item_height="60" style:normal:bg_color="#000000">
+    <scroll_view name="scroll_view" x="0" y="0" w="-10" h="100%">
+      <view name="view" h="871">
+        <button name="button_return" x="18" y="21" w="18" h="28" repeat="0" enable_long_press="false" style:normal:bg_color="#00000000" style:normal:icon="bt_return" tr_text=""/>
+        <label name="label_heart_rate" x="48" y="20" w="136" h="34" style:normal:font_size="28" style:normal:margin_top="0" style:normal:text_color="#CCCCCC" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:font_name="Inter-Regular">
+          <property name="tr_text">
+            <![CDATA[Heart Rate]]>
+          </property>
+        </label>
+        <label name="label_time" x="296" y="20" w="51" h="24" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:font_name="Inter-Regular" style:normal:font_size="20" style:normal:text_color="#999999" tr_text="15:50"/>
+        <label name="label_rate" x="145" y="179" w="85" h="91" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:font_name="Barlow_Regular" style:normal:font_size="76" style:normal:text_color="#FFFFFF" tr_text="65"/>
+        <label name="label_symbol" x="228" y="232" w="44" h="24" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:font_name="Inter-Regular" style:normal:font_size="20" style:normal:text_color="#FFFFFF" style:normal:spacer="2">
+          <property name="tr_text">
+            <![CDATA[BPM]]>
+          </property>
+        </label>
+        <label name="label_bpm_time" x="77" y="394" w="209" h="34" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:font_size="28" style:normal:font_name="Inter-Regular" style:normal:text_color="#CCCCCC" tr_text="88 BPM, 1m ago"/>
+        <tooltip enable="true" visible="false" children_layout="default(r=1,c=0)"/>
+        <chart_view name="chartview" x="4" y="478" w="360" h="160">
+          <x_axis name="x" axis_type="value" min="0" max="11" tick="{show:false}" split_line="{show:false}" label="{show:true}" data="[0,6,12,18,24]"/>
+          <y_axis name="y" axis_type="value" min="0" max="140" tick="{show:false}" split_line="{show:false}" label="{show:false}" data="[0,20,40,60,80,100,120,140]"/>
+          <line_series name="s1" capacity="24" line="{style:s1, smooth:true}" area="{style:s1, show:false}" symbol="{style:s1, show:false}"/>
+          <line_series name="s2" capacity="24" line="{style:s2, smooth:true}" area="{style:s2, show:false}" symbol="{style:s2, show:false}"/>
+        </chart_view>
+        <label name="label_max" style:normal:font_name="Inter-Regular" style:normal:font_size="28" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:text_color="#CCCCCC" w="91" h="34" x="72" y="658" tr_text="110BPM"/>
+        <label name="label_min" style:normal:text_color="#CCCCCC" style:normal:text_align_h="left" style:normal:text_align_v="top" w="75" h="34" x="260" y="658" style:normal:font_size="28" style:normal:font_name="Inter-Regular" tr_text="65BPM"/>
+        <label name="label_rest" style:normal:font_name="Inter-Regular" style:normal:font_size="20" style:normal:text_align_h="left" style:normal:text_align_v="top" style:normal:text_color="#FFFFFF" w="177" h="24" x="34" y="752" tr_text="Resting Rate Today"/>
+      </view>
+    </scroll_view>
+    <scroll_bar_m name="scroll_bar_m" x="356" y="0" w="12" h="100%" max="1000"/>
+  </list_view>
+</window>

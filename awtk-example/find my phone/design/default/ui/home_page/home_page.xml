@@ -1,0 +1,46 @@
+<window name="home_page" style:normal:border_color="#000000" style:normal:bg_color="#000000">
+  <button name="bt_return" x="18" y="21" w="18" h="28" repeat="0" enable_long_press="false" style:normal:icon="bt_return" style:normal:bg_color="#000000" style:normal:border_color="#00000000" style:pressed:border_color="#00000000">
+    <property name="style:over:border_color">
+      <![CDATA[#338fff7f]]>
+    </property>
+    <property name="style:over:bg_color">
+      <![CDATA[#338fff7f]]>
+    </property>
+    <property name="style:over:icon">
+      <![CDATA[bt_return]]>
+    </property>
+    <property name="style:pressed:bg_color">
+      <![CDATA[#1971dd7f]]>
+    </property>
+    <property name="style:pressed:icon">
+      <![CDATA[bt_return]]>
+    </property>
+  </button>
+  <image name="image_find" x="48" y="20" w="189" h="34" style:normal:icon="im_find"/>
+  <image name="image_watch" x="111" y="169" w="38" h="68" style:normal:icon="im_watch" animation=""/>
+  <image name="image_phone" x="214" y="160" w="44" h="78" style:normal:icon="im_phone"/>
+  <button name="button_rect" x="6" y="348" w="356" h="90" repeat="0" enable_long_press="false" style:normal:icon="" style:normal:bg_color="#000000" style:normal:border_color="#000000" style:pressed:icon="">
+    <property name="style:pressed:bg_image">
+      <![CDATA[im_rect]]>
+    </property>
+    <property name="style:normal:bg_image">
+      <![CDATA[im_rect]]>
+    </property>
+    <property name="style:pressed:bg_color">
+      <![CDATA[#1971dd7f]]>
+    </property>
+    <property name="style:over:bg_color">
+      <![CDATA[#338fff7f]]>
+    </property>
+    <property name="style:over:bg_image">
+      <![CDATA[im_rect]]>
+    </property>
+    <property name="style:over:round_radius">
+      <![CDATA[50]]>
+    </property>
+    <property name="style:pressed:round_radius">
+      <![CDATA[50]]>
+    </property>
+  </button>
+  <image_animation name="image_animation" x="162" y="196" w="38" h="8" image="im_" start_index="1" end_index="3" format="%s%d" interval="500" auto_play="true"/>
+</window>

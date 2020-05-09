@@ -1,0 +1,7 @@
+﻿  scons: Reading SConscript files ...
+  MACH=AMD64 ARCH=('64bit', 'WindowsPE') TARGET_ARCH=
+  TK_ROOT: D:\Workspace\awtk_demo\awtk
+  scons: done reading SConscript files.
+  scons: Building targets ...
+  scons: `.' is up to date.
+  scons: done building targets.

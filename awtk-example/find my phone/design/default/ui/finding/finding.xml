@@ -1,0 +1,25 @@
+<window name="finding" style:normal:bg_color="#000000">
+  <image name="image_radar" x="38" y="102" w="292" h="292" style:normal:icon="" animation="" style:normal:bg_image="" image="im_src_radar"/>
+  <button name="bt_return" x="18" y="21" w="18" h="28" repeat="0" enable_long_press="false" style:over:icon="bt_return" style:over:bg_color="#1971dd7f" style:over:text_color="#000000" style:over:border_color="#000000">
+    <property name="style:pressed:bg_color">
+      <![CDATA[#1971dd7f]]>
+    </property>
+    <property name="style:normal:bg_color">
+      <![CDATA[#000000]]>
+    </property>
+    <property name="style:normal:text_color">
+      <![CDATA[#000000]]>
+    </property>
+    <property name="style:normal:border_color">
+      <![CDATA[#000000]]>
+    </property>
+    <property name="style:pressed:icon">
+      <![CDATA[bt_return]]>
+    </property>
+    <property name="style:normal:icon">
+      <![CDATA[bt_return]]>
+    </property>
+  </button>
+  <image name="image_find" x="48" y="20" w="189" h="34" style:normal:icon="im_find"/>
+  <image name="image_phone" x="143" y="189" w="82" h="118" image="im_blue_rect" animation=""/>
+</window>

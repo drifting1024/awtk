@@ -1,0 +1,5 @@
+<window name="new">
+  <view name="view" x="10" y="10" w="200" h="200" animation="move(yoyo_times=0,easing=linear,x_from=0,x_to=100,y_from=0,y_to=0)">
+    <button name="button" x="10" y="10" w="100" h="36" repeat="0" enable_long_press="false" tr_text="Button"/>
+  </view>
+</window>
