@@ -22,6 +22,7 @@
 #include "axis.h"
 #include "base/style_factory.h"
 #include "tkc/utils.h"
+
 #include "tkc/wstr.h"
 #include "axis_p.h"
 #include "series.h"

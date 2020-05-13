@@ -4,6 +4,7 @@
 #include "assets/default/inc/styles/default.data"
 #include "assets/default/inc/styles/default_src.data"
 #include "assets/default/inc/ui/home_page/home_page.data"
+#include "assets/default/inc/ui/new/new.data"
 #ifdef WITH_STB_IMAGE
 #include "assets/default/inc/images/arrow_down_d.res"
 #include "assets/default/inc/images/arrow_down_f.res"
@@ -43,6 +44,7 @@
 #include "assets/default/inc/images/cross.res"
 #include "assets/default/inc/images/guage_bg.res"
 #include "assets/default/inc/images/guage_pointer.res"
+#include "assets/default/inc/images/im_blue_rect.res"
 #include "assets/default/inc/images/num0.res"
 #include "assets/default/inc/images/num1.res"
 #include "assets/default/inc/images/num2.res"
@@ -67,6 +69,7 @@
 #include "assets/default/inc/images/rounded_n.res"
 #include "assets/default/inc/images/rounded_o.res"
 #include "assets/default/inc/images/rounded_p.res"
+#include "assets/default/inc/images/scene.res"
 #else
 #endif/*WITH_STB_IMAGE*/
 #ifdef WITH_VGCANVAS
@@ -129,6 +132,7 @@ ret_t assets_init(void) {
   assets_manager_add(rm, image_cross);
   assets_manager_add(rm, image_guage_bg);
   assets_manager_add(rm, image_guage_pointer);
+  assets_manager_add(rm, image_im_blue_rect);
   assets_manager_add(rm, image_num0);
   assets_manager_add(rm, image_num1);
   assets_manager_add(rm, image_num2);
@@ -153,7 +157,9 @@ ret_t assets_init(void) {
   assets_manager_add(rm, image_rounded_n);
   assets_manager_add(rm, image_rounded_o);
   assets_manager_add(rm, image_rounded_p);
+  assets_manager_add(rm, image_scene);
   assets_manager_add(rm, ui_home_page_home_page);
+  assets_manager_add(rm, ui_new_new);
 #ifdef WITH_VGCANVAS
 #endif/*WITH_VGCANVAS*/
 #endif

@@ -157,10 +157,29 @@ static ret_t chart_view_on_paint_self(widget_t* widget, canvas_t* c) {
   chart_view_t* chart_view = CHART_VIEW(widget);
   return_value_if_fail(chart_view != NULL && c != NULL, RET_BAD_PARAMS);
 
+  bitmap_t img;
+  image_manager_get_bitmap(image_manager(), "scene", &img);
+  
+
   if (chart_view->need_relayout_axes) {
     chart_view_on_layout_axes(widget);
     chart_view->need_relayout_axes = FALSE;
   }
+
+  rect_t canvas_rect = rect_init(c->ox, c->oy, 
+                                chart_view->widget.w, chart_view->widget.h);
+  rect_t r;
+
+  canvas_get_clip_rect(c, &r);
+
+  canvas_set_clip_rect(c, &canvas_rect);
+  vgcanvas_t* vg = canvas_get_vgcanvas(c);
+  vgcanvas_save(vg);
+  vgcanvas_translate(vg, c->ox, c->oy);
+  vgcanvas_draw_image(vg, &img, img.w/2, img.h/2, chart_view->widget.w, chart_view->widget.h, 0, 0, chart_view->widget.w, chart_view->widget.h);
+  vgcanvas_restore(vg);
+  vgcanvas_reset(vg);
+  canvas_set_clip_rect(c, &r);
 
   return RET_OK;
 }

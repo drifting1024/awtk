@@ -198,10 +198,18 @@ static ret_t line_series_draw_one_series(widget_t* widget, canvas_t* c, float_t 
     vg = canvas_get_vgcanvas(c);
     assert(vg != NULL);
     vgcanvas_save(vg);
+  bitmap_t img;
+  image_manager_get_bitmap(image_manager(), "scene", &img);
+  // vgcanvas_save(vg);
+  // vgcanvas_clip_rect(vg, canvas_rect.x, canvas_rect.y, canvas_rect.w, canvas_rect.h);
+  // vgcanvas_restore(vg);
+
     vgcanvas_translate(vg, c->ox, c->oy);
 
     // 加0.5, 避免色块边缘出现虚化（注意, 色块的区域为rect(x + 0.5, y + 0.5, w, h)）
     vgcanvas_translate(vg, 0.5, 0.5);
+
+  // vgcanvas_draw_image(vg, &img, 0, 0, img.w, img.h, 0, 0, img.w, img.h);
 
     if (series->line.show) {
       if (series->line.smooth) {

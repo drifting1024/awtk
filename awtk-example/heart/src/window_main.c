@@ -2,7 +2,7 @@
 #include "custom_widgets/custom_widgets.h"
 
 extern ret_t application_init(void);
-extern ret_t open_line_series_window(const char* name);
+extern ret_t on_series_push_rand_ufloat_data(const timer_info_t* timer);
 /**
  * 子控件初始化(主要是设置click回调、初始显示信息)
  */
@@ -14,8 +14,8 @@ static ret_t init_widget(void* ctx, const void* iter) {
   if (widget->name != NULL) {
     const char* name = widget->name;
 
-    if (strstr(name, "chart_view") != NULL) {
-//      widget_on(widget, EVT_CLICK, on_start_click, win);
+    if (strstr(name, "chartview") != NULL) {
+      
       win = win;
     }
   }
@@ -46,10 +46,7 @@ ret_t application_init() {
 
   if (win) {
     init_children_widget(win);
-    // open_line_series_window("window_line_series/window_line_series");
-    // init_normal_line_series_window(win);
-    // axis_time_init(win);    
-    test_series(win);
+    widget_add_timer(win, on_series_push_rand_ufloat_data, 2000);
   }
 
   return RET_OK;

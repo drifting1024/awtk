@@ -385,6 +385,11 @@ ret_t series_p_draw_line(widget_t* widget, canvas_t* c, vgcanvas_t* vg, style_t*
 
       vgcanvas_set_line_width(vg, border_width);
       vgcanvas_set_stroke_color(vg, color);
+
+      for (i = 0; i < vg->clip_rect.w; i++) {
+        vgcanvas_set_stroke_linear_gradient(vg, ox + i, oy - 150, ox + i, oy, color_init(0xff, 0, 0, 0xff), color_init(0, 0, 0xff, 0xff));     
+      }
+
       vgcanvas_begin_path(vg);
       _VGCANVAS_MOVE_TO(vg, ox + d->x, oy + d->y);
 
@@ -587,18 +592,30 @@ ret_t series_p_draw_smooth_line(widget_t* widget, vgcanvas_t* vg, style_t* style
   assert(widget != NULL && vg != NULL && style != NULL && fifo != NULL);
   assert(index < fifo->size && index + size - 1 < fifo->size);
   return_value_if_true(fifo->size == 0 || size == 0, RET_OK);
-
+      
   color = style_get_color(style, STYLE_ID_BORDER_COLOR, trans);
   border_width = style_get_int(style, STYLE_ID_BORDER_WIDTH, 1);
 
   if (color.rgba.a) {
     dprev = d = (series_p_draw_data_t*)(fifo_at(fifo, index + size - 1));
 
-    vgcanvas_set_line_width(vg, border_width);
-    vgcanvas_set_stroke_color(vg, color);
+    vgcanvas_set_line_width(vg, 1);
+    // vgcanvas_set_stroke_color(vg, color);
+    for (i = 0; i < vg->clip_rect.w; i++) {
+      vgcanvas_set_stroke_linear_gradient(vg, ox + i, oy - 150, 
+      ox + i, oy, color_init(0xff, 0, 0, 0xff), color_init(0, 0, 0xff, 0xff));     
+    }
+
+
     vgcanvas_begin_path(vg);
     _VGCANVAS_MOVE_TO(vg, ox + d->x, oy + d->y);
-
+    // _VGCANVAS_MOVE_TO(vg, ox, oy);
+    // vgcanvas_line_to(vg, ox + 300, oy - 150);
+    // vgcanvas_line_to(vg, ox + 200, oy);
+    // for (i = 0; i < vg->clip_rect.w; i++) {
+    //   vgcanvas_set_stroke_linear_gradient(vg, vg->clip_rect.x +i, vg->clip_rect.y + vg->clip_rect.h, 
+    //   vg->clip_rect.x +i, vg->clip_rect.y, color_init(0, 0, 0xff, 0xff), color_init(0xff, 0, 0, 0xff));     
+    // }
     if (size == 2) {
       d = (series_p_draw_data_t*)(fifo_at(fifo, index));
       _VGCANVAS_LINE_TO(vg, ox + d->x, oy + d->y);
@@ -1157,7 +1174,7 @@ ret_t series_p_push(widget_t* widget, const void* data, uint32_t nr) {
     wa = widget_animator_prop_create(widget, series->animation, 100, SERIES_ANIMATION_EASING,
                                      SERIES_PROP_CLIP_RANGE);
     assert(wa != NULL);
-    widget_animator_prop_set_params(wa, series->clip_range, 0);
+    widget_animator_prop_set_params(wa, 5/*series->clip_range*/, 0);
 
     if (series->inited) {
       widget_animator_start(wa);
@@ -1602,7 +1619,9 @@ ret_t series_p_get_origin_point(widget_t* widget, widget_t* saxis, widget_t* vax
     p->y = inverse ? sruler->y : (sruler->y + sruler->h - 1);
     p->x = v->inverse ? (vruler->x + vruler->w - 1 - voffset) : (vruler->x + voffset);
   }
-
+  // test
+  p->x = 55;
+  p->y = 139;
   return RET_OK;
 }
 
@@ -1731,7 +1750,7 @@ ret_t series_p_on_paint_self_push(widget_t* widget, canvas_t* c) {
 
   if (fifo->size > 0) {
     series_p_get_origin_point(widget, saxis, vaxis, FALSE, &o);
-    series_p_calc_clip_rect(series, saxis, c, &o, interval, vertical, fifo, &clip_rect);
+    // series_p_calc_clip_rect(series, saxis, c, &o, interval, vertical, fifo, &clip_rect);
     series->vt->on_paint(widget, c, o.x, o.y, fifo, 0, fifo->size, &clip_rect);
   }
 

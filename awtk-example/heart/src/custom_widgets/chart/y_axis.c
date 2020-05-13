@@ -115,6 +115,7 @@ ret_t y_axis_measure_series(widget_t* widget, void* measure_params, fifo_t* src,
   nr = tk_min(dst->capacity, src->size);
   return_value_if_true(nr == 0, RET_OK);
 
+
   vmin = axis->max * axis->min > 0 ? axis->min : 0;
   vrange = axis_get_range(widget);
   prange = axis->draw_rect.h;
