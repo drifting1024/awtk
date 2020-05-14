@@ -389,19 +389,36 @@ ret_t series_p_draw_line(widget_t* widget, canvas_t* c, vgcanvas_t* vg, style_t*
       for (i = 0; i < vg->clip_rect.w; i++) {
         vgcanvas_set_stroke_linear_gradient(vg, ox + i, oy - 150, ox + i, oy, color_init(0xff, 0, 0, 0xff), color_init(0, 0, 0xff, 0xff));     
       }
-
-      vgcanvas_begin_path(vg);
-      _VGCANVAS_MOVE_TO(vg, ox + d->x, oy + d->y);
-
-      for (i = index + size - 1; i >= (int32_t)index; i--) {
-        d = (series_p_draw_data_t*)(fifo_at(fifo, i));
-        _VGCANVAS_LINE_TO(vg, ox + d->x, oy + d->y);
+      for (i = 0; i < vg->clip_rect.w; i++) {
+        vgcanvas_set_fill_linear_gradient(vg, ox + i, oy - 150, ox + i, oy, color_init(0xff, 0, 0, 0xff), color_init(0, 0, 0xff, 0xff));     
       }
 
-      vgcanvas_stroke(vg);
+      vgcanvas_begin_path(vg);
+
+      // vgcanvas_save(vg);
+
+      if (0) {
+        _VGCANVAS_MOVE_TO(vg, ox + d->x, oy + d->y);
+
+        for (i = index + size - 1; i >= (int32_t)index; i--) {
+          d = (series_p_draw_data_t*)(fifo_at(fifo, i));
+          _VGCANVAS_LINE_TO(vg, ox + d->x, oy + d->y);
+        }
+      } else {
+        series_t* series = SERIES(widget);
+        widget_t* saxis = widget_get_prop_pointer(widget, SERIES_PROP_SERIES_AXIS);
+        float_t interval = axis_measure_series_interval(saxis);   
+        // vgcanvas_set_line_width(vg, interval);
+        vgcanvas_move_to(vg, ox + d->x, oy + d->y);
+        vgcanvas_rounded_rect(vg, ox + d->x , oy, interval, d->y, 5);
+        // vgcanvas_line_to(vg, ox + d->x, oy + d->y);
+      }
+        // vgcanvas_stroke(vg);
+      vgcanvas_fill(vg);
+      // vgcanvas_restore(vg);
     }
   }
-
+  
   return RET_OK;
 }
 
@@ -1746,7 +1763,7 @@ ret_t series_p_on_paint_self_push(widget_t* widget, canvas_t* c) {
   fifo = fifo_create(nr, series->vt->draw_data_info->size, NULL, NULL);
   return_value_if_fail(fifo != NULL, RET_OOM);
 
-  series_p_measure_draw_data(series, saxis, vaxis, fifo, 0, vertical);
+  series_p_measure_draw_data(series, saxis, vaxis, fifo, 0, vertical);               
 
   if (fifo->size > 0) {
     series_p_get_origin_point(widget, saxis, vaxis, FALSE, &o);

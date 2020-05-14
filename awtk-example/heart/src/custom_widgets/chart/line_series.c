@@ -197,7 +197,8 @@ static ret_t line_series_draw_one_series(widget_t* widget, canvas_t* c, float_t 
 
     vg = canvas_get_vgcanvas(c);
     assert(vg != NULL);
-    vgcanvas_save(vg);
+  vgcanvas_save(vg);
+
   bitmap_t img;
   image_manager_get_bitmap(image_manager(), "scene", &img);
   // vgcanvas_save(vg);
